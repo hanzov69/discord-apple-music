@@ -8,6 +8,7 @@ Clone/download this repo somewhere on your system
 **Installation:**
 
 `sudo -H pip3 install pypresence applescript`
+
 `chmod +X dam.sh`
 
 **Running:**
