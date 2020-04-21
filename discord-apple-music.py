@@ -11,5 +11,5 @@ print(RPC.update(state=current_song)) # initial presence
 
 while True:  # The presence will stay on as long as the program is running
     time.sleep(15) # Can only update rich presence every 15 seconds
-    current_song = applescript.run('getsong.scpt')
-    print(RPC.update(state=current_song.out)) # updated presence
+    current_song = os.popen('osascript getsong.scpt').read()
+    print(RPC.update(state=current_song)) # updated presence
