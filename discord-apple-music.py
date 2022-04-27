@@ -7,9 +7,12 @@ RPC = Presence(client_id)  # Initialize the client class
 RPC.connect() # Start the handshake loop
 
 current_song = os.popen('osascript getsong.scpt').read()
-print(RPC.update(state=current_song)) # initial presence
+trunc_current_song = current_song[0:127]
+
+print(RPC.update(state=trunc_current_song)) # initial presence
 
 while True:  # The presence will stay on as long as the program is running
     time.sleep(15) # Can only update rich presence every 15 seconds
     current_song = os.popen('osascript getsong.scpt').read()
-    print(RPC.update(state=current_song)) # updated presence
+    trunc_current_song = current_song[0:127]
+    print(RPC.update(state=trunc_current_song)) # updated presence
